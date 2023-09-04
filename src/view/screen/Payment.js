@@ -1,9 +1,16 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Addtocart from "./Addtocart";
 import { addcart, data } from "../Data/data";
+import { AuthContext } from "../Context/Context";
 export default function Payment() {
+
+
+    var data1 = useContext(AuthContext)
+    var {addcart,total} = data1;
+
+    console.log(data1);
     const nav = useNavigate();
     const loc = useLocation();
     const [data, setData] = useState(loc.state);

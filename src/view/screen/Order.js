@@ -1,15 +1,19 @@
 import { useState } from "react";
+import Confirm from "./Confirm";
+import { useNavigate } from "react-router-dom";
 export default function Order() {
     const [select, setSelect] = useState("");
     const [select1, setSelect1] = useState("form");
     const [online, setOnline] = useState("on");
     const [online1, setOnline1] = useState("false");
-
+    const nav = useNavigate();
 
     function method1() {
         (online === "on") ? setOnline1("on") : alert("select on or off")
     }
-
+    function Confirm(){
+        nav("/Confirm");
+    }
     function UPIid() {
         return (
 
@@ -17,7 +21,7 @@ export default function Order() {
                 UPI_ID 
                 <br></br>
                 <input type="text" placeholder="Enter UPI id"/>
-                <a href="/Confirm">Confirm</a>
+                <button onClick={Confirm}>Confirm</button>
             </div>
         )
 

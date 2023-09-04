@@ -1,9 +1,12 @@
 
-import { useState } from "react"
+import { useContext, useState } from "react"
 import OTPInput from "react-otp-input"
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../Context/Context";
 
 export default function OTP() {
+    const data1 = useContext(AuthContext)
+    console.log(data1);
     const [otp, setOtp] = useState('')
     const nav = useNavigate();
 

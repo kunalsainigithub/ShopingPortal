@@ -8,11 +8,14 @@ import { AuthContext } from "../Context/Context";
 export default function Addtocart() {
 
     var data1 = useContext(AuthContext)
-    var {total} = data1;
+    var {addcart,total} = data1;
+
+console.log(data1);
+
     const loc = useLocation();
     const nav = useNavigate();
-    const [Product, setProduct] = useState(loc.state)
-    const [cart, setCart] = useState(loc.state);
+    const [Product, setProduct] = useState(addcart)
+    const [cart, setCart] = useState(addcart);
     const [rate, setRate] = useState(0)
     console.log(cart);
     useEffect(() => {

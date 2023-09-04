@@ -1,13 +1,19 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { addcart, data } from "../Data/data";
+import { AuthContext } from "../Context/Context";
 export default function DetailsScreen() {
+const data1 = useContext(AuthContext)
+//console.log(data1);
+const {addcart,total}=data1
+
+
+
     const nav = useNavigate()
     const loc = useLocation()
     const [product, setProduct] = useState(loc.state)
     const [qty, setQty] = useState(1)
-    console.log(product)
+    //console.log(product)
     const {data}  = product;
     function addqty() {
         var q = qty;
@@ -24,13 +30,14 @@ export default function DetailsScreen() {
 
     function addtocart() {
         alert("Add to Cart");
-        console.log(product);
+        //console.log(product);
         const params = {
             ...product,
             qty:qty,
         };
-        addcart.push(params)
-        nav("/Addtocart",{state: addcart})
+       addcart.push(params)
+       //console.log(addcart);
+        nav("/Addtocart")
     }
 
 

@@ -1,4 +1,17 @@
+import { useContext } from "react";
+import { AuthContext } from "../Context/Context";
+import { useNavigate } from "react-router-dom";
+
+
+
 export default function Confirm(){
+    const data1 = useContext(AuthContext)
+    console.log(data1);
+    const nav = useNavigate();
+
+    function otp(){
+        nav ("/otp");
+    }
     return(
         <>
         <div>
@@ -6,7 +19,8 @@ export default function Confirm(){
             <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required/><br></br>
             <small>Format: 123-45-678</small><br></br>
             <input type="submit"/>
-            <a href="/otp">Confirm</a>
+            <button onClick={otp}>Confirm</button>
+            
         </div>
         </>
     )
